@@ -17,15 +17,15 @@ public class CalcfxControl {
     }
 
     private void agregarOperador(String operador) {
-        //char op = txtResultado.getText().toString().charAt()
-        /*if(!txtResultado.getText().isEmpty()){
-            System.out.println(txtResultado.getText().charAt(txtResultado.getText().toString().length()-1));
-        }*/
-        txtResultado.appendText(" " + operador + " ");
-        /*if ( !txtResultado.getText().isEmpty() && op!='+' &&  op!='/' && op!='-' && op!='*') {
-            txtResultado.appendText(" " + operador + " ");
-        }*/
 
+        if(!txtResultado.getText().isEmpty() && txtResultado.getText().length()>=4){
+            char op = txtResultado.getText().charAt(txtResultado.getText().length()-2);
+            if(txtResultado.getText().toString().contentEquals(String.valueOf(op))){
+                txtResultado.appendText(" " + operador + " ");
+            }
+        }else{
+            txtResultado.appendText(" " + operador + " ");
+        }
 
 
 
