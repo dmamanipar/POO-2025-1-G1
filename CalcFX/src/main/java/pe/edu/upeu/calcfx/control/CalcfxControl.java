@@ -17,7 +17,18 @@ public class CalcfxControl {
     }
 
     private void agregarOperador(String operador) {
+        //char op = txtResultado.getText().toString().charAt()
+        /*if(!txtResultado.getText().isEmpty()){
+            System.out.println(txtResultado.getText().charAt(txtResultado.getText().toString().length()-1));
+        }*/
         txtResultado.appendText(" " + operador + " ");
+        /*if ( !txtResultado.getText().isEmpty() && op!='+' &&  op!='/' && op!='-' && op!='*') {
+            txtResultado.appendText(" " + operador + " ");
+        }*/
+
+
+
+
     }
 
     private void calcularResultado() {
