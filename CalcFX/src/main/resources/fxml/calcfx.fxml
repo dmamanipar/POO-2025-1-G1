@@ -78,10 +78,13 @@
             </AnchorPane>
             <AnchorPane>
                <children>
-                  <TableView layoutX="6.0" layoutY="6.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="14.0">
+                  <TableView fx:id="tableView" layoutX="6.0" layoutY="6.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="14.0">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="C1" />
-                      <TableColumn prefWidth="75.0" text="C2" />
+                      <TableColumn fx:id="num1x" prefWidth="75.0" text="Num1" />
+                      <TableColumn fx:id="num2x" prefWidth="75.0" text="Num2" />
+                        <TableColumn fx:id="operx" prefWidth="75.0" text="Oper" />
+                        <TableColumn fx:id="resultx" prefWidth="75.0" text="Result" />
+                        <TableColumn fx:id="opcionesx" prefWidth="160.0" style="-fx-alignment: Center;" text="Opciones" />
                     </columns>
                   </TableView>
                </children></AnchorPane>
