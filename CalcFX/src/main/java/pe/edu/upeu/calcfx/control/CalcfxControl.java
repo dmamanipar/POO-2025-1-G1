@@ -13,6 +13,7 @@ import javafx.util.Callback;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import pe.edu.upeu.calcfx.modelo.CalcTO;
+import pe.edu.upeu.calcfx.servicio.CalcRepoSql;
 import pe.edu.upeu.calcfx.servicio.CalcServicioI;
 
 import java.util.List;
@@ -44,6 +45,9 @@ public class CalcfxControl {
 
     int indexID=-1;
     int idx=0;
+
+    @Autowired
+    CalcRepoSql calcRepoSql;
 
     @FXML
     private void initialize() {
@@ -112,6 +116,7 @@ public class CalcfxControl {
             if(indexID!=-1){
                 servicioI.update(to, indexID);
             }else{
+                calcRepoSql.guardarEntidad(to);
                 servicioI.save(to);
             }
 
@@ -142,7 +147,8 @@ public class CalcfxControl {
 
         addActionButtonsToTable();
 
-        datos = FXCollections.observableArrayList(lista);
+        //datos = FXCollections.observableArrayList(lista);
+        datos = FXCollections.observableArrayList(calcRepoSql.listarEntidad());
         tableView.setItems(datos);
 
     }

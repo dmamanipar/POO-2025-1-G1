@@ -1,10 +1,19 @@
 package pe.edu.upeu.calcfx.modelo;
 
 public class CalcTO {
+    int id;
     String num1;
     String num2;
     char operador;
     String resultado;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getNum1() {
         return num1;
