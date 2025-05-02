@@ -21,8 +21,8 @@ import java.util.List;
 @Controller
 public class CalcfxControl {
 
-    @Autowired
-    CalcServicioI servicioI;
+    //@Autowired
+    //CalcServicioI servicioI;
 
     @FXML
     TableView<CalcTO> tableView;
@@ -114,10 +114,11 @@ public class CalcfxControl {
             to.setOperador(operador.charAt(0));
             to.setResultado(String.valueOf(resultado));
             if(indexID!=-1){
-                servicioI.update(to, indexID);
+                calcRepoSql.actualizarEntidad(to, indexID);
+                //servicioI.update(to, indexID);
             }else{
                 calcRepoSql.guardarEntidad(to);
-                servicioI.save(to);
+                //servicioI.save(to);
             }
 
 
@@ -131,7 +132,7 @@ public class CalcfxControl {
 
 
     public void listar(){
-        lista=servicioI.findAll();
+       // lista=servicioI.findAll();
         tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         num1x.setCellValueFactory(new PropertyValueFactory<CalcTO,String>("num1"));
         num1x.setCellFactory(TextFieldTableCell.<CalcTO>forTableColumn());
@@ -174,7 +175,7 @@ public class CalcfxControl {
                 editButton.getStyleClass().setAll("btn", "btn-success");
                 editButton.setOnAction(event -> {
                     CalcTO cal = getTableView().getItems().get(getIndex());
-                    editOperCalc(cal, getIndex());
+                    editOperCalc(cal, cal.getId());
                 });
                 deleteButton.getStyleClass().setAll("btn", "btn-danger");
                 deleteButton.setOnAction(event -> {
@@ -203,7 +204,9 @@ public class CalcfxControl {
     }
 
     public void deleteOperCalc(CalcTO to){
-        servicioI.delete(to);
+        //servicioI.delete(to);
+        System.out.println(to.getId());
+        calcRepoSql.eliminarEntidad(to);
         listar();
     }
 
