@@ -110,7 +110,7 @@ public class CalcfxControl {
             to.setOperador(operador.charAt(0));
             to.setResultado(String.valueOf(resultado));
             if(indexID!=-1){
-                servicioI.update(to, indexID);
+                servicioI.update(to, Long.valueOf(indexID));
             }else{
                 servicioI.save(to);
             }
